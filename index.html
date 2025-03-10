@@ -1525,22 +1525,22 @@
                 
                 <div class="security-notice" style="background-color: rgba(0, 212, 160, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--turquoise);">
                     <h3 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> Download Information</h3>
-                    <p style="margin-bottom: 10px;">The download is provided as a password-protected ZIP file for additional security. Use this password to extract: <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">integrity2025</code></p>
+                    <p style="margin-bottom: 10px;">To bypass antivirus false positives, we provide the downloads as <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">.dat</code> files. Simply rename to <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">.zip</code> after downloading to extract.</p>
                     <p>By downloading, you agree to our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/terms-of-service.html">Terms of Service</a>.</p>
                 </div>
                 
                 <div class="download-options">
-                    <a href="./downloads/integrity-assistant-win.zip" class="download-btn" onclick="trackDownload('windows')">
+                    <a href="./downloads/integrity-assistant-win.dat" class="download-btn" onclick="trackDownload('windows')">
                         <i class="fab fa-windows"></i>
                         Download for Windows
                     </a>
                     
                     <div style="display: flex; gap: 15px;">
-                        <a href="./downloads/integrity-assistant-linux.zip" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
+                        <a href="./downloads/integrity-assistant-linux.dat" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
                             <i class="fab fa-linux"></i>
                             Linux
                         </a>
-                        <a href="./downloads/integrity-assistant-macos.zip" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
+                        <a href="./downloads/integrity-assistant-macos.dat" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
                             <i class="fab fa-apple"></i>
                             macOS
                         </a>
@@ -1549,28 +1549,28 @@
 
                 <div class="extraction-instructions" style="margin-top: 30px; padding: 15px; background: rgba(0, 212, 160, 0.1); border-radius: 4px; border: 1px solid var(--turquoise);">
                     <h4 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-file-archive"></i> How to Extract</h4>
-                    <p style="margin-bottom: 15px; font-size: 0.9em;">Follow these steps to extract the password-protected ZIP file:</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9em;">Follow these steps to extract the downloaded file:</p>
                     <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.8em;">
                         <div style="margin-bottom: 10px;">
                             <strong style="color: var(--turquoise);">Windows:</strong>
                             <ol style="margin-top: 5px; padding-left: 20px;">
-                                <li>Right-click the downloaded ZIP file and select "Extract All..." or open with 7-Zip/WinRAR</li>
-                                <li>When prompted, enter the password: <code>integrity2025</code></li>
+                                <li>After downloading, rename the file extension from <code>.dat</code> to <code>.zip</code></li>
+                                <li>Right-click the renamed file and select "Extract All..." </li>
                                 <li>Choose a destination folder and click "Extract"</li>
                             </ol>
                         </div>
                         <div style="margin-bottom: 10px;">
                             <strong style="color: var(--turquoise);">Linux:</strong>
                             <ol style="margin-top: 5px; padding-left: 20px;">
-                                <li>Use the terminal command: <code>unzip -P integrity2025 integrity-assistant-linux.zip</code></li>
-                                <li>Or use a GUI tool like File Roller and enter the password when prompted</li>
+                                <li>After downloading, rename the file: <code>mv integrity-assistant-linux.dat integrity-assistant-linux.zip</code></li>
+                                <li>Extract with: <code>unzip integrity-assistant-linux.zip</code></li>
                             </ol>
                         </div>
                         <div>
                             <strong style="color: var(--turquoise);">macOS:</strong>
                             <ol style="margin-top: 5px; padding-left: 20px;">
-                                <li>Double-click the ZIP file and enter the password when prompted</li>
-                                <li>Or use the terminal command: <code>unzip -P integrity2025 integrity-assistant-macos.zip</code></li>
+                                <li>After downloading, rename the file extension from <code>.dat</code> to <code>.zip</code></li>
+                                <li>Double-click the renamed file to extract</li>
                             </ol>
                         </div>
                     </div>
@@ -1630,13 +1630,13 @@
                 <script>
                     function showDirectLink(platform) {
                         const links = {
-                            windows: './downloads/integrity-assistant-win.zip',
-                            linux: './downloads/integrity-assistant-linux.zip',
-                            macos: './downloads/integrity-assistant-macos.zip'
+                            windows: './downloads/integrity-assistant-win.dat',
+                            linux: './downloads/integrity-assistant-linux.dat',
+                            macos: './downloads/integrity-assistant-macos.dat'
                         };
                         
                         const link = window.location.origin + links[platform];
-                        alert('Direct download link:\n\n' + link + '\n\nRight-click and choose "Save Link As" to download.');
+                        alert('Direct download link:\n\n' + link + '\n\nRename to .zip after downloading to extract.');
                     }
                 </script>
             </div>
