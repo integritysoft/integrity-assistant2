@@ -1526,56 +1526,53 @@
                 <div class="security-notice" style="background-color: rgba(0, 212, 160, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--turquoise);">
                     <h3 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> Download Information</h3>
                     <p style="margin-bottom: 10px;">The download is provided as a password-protected ZIP file for additional security. Use this password to extract: <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">integrity2025</code></p>
-                    <p style="margin-bottom: 10px;">To extract the files:</p>
-                    <ul style="list-style: none; padding-left: 20px; margin-bottom: 10px;">
-                        <li style="margin-bottom: 5px;"><strong>Windows:</strong> Use 7-Zip or WinZip and enter the password when prompted</li>
-                        <li style="margin-bottom: 5px;"><strong>Linux:</strong> Use <code>unzip -P integrity2025 integrity-assistant-linux-protected.zip</code></li>
-                        <li style="margin-bottom: 5px;"><strong>macOS:</strong> Double-click the file and enter the password when prompted</li>
-                    </ul>
                     <p>By downloading, you agree to our <a href="/privacy-policy.html">Privacy Policy</a> and <a href="/terms-of-service.html">Terms of Service</a>.</p>
                 </div>
                 
                 <div class="download-options">
-                    <a href="./downloads/integrity-assistant-win-protected.zip" class="download-btn" onclick="trackDownload('windows')">
+                    <a href="./downloads/integrity-assistant-win.zip" class="download-btn" onclick="trackDownload('windows')">
                         <i class="fab fa-windows"></i>
                         Download for Windows
                     </a>
                     
                     <div style="display: flex; gap: 15px;">
-                        <a href="./downloads/integrity-assistant-linux-protected.zip" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
+                        <a href="./downloads/integrity-assistant-linux.zip" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
                             <i class="fab fa-linux"></i>
                             Linux
                         </a>
-                        <a href="./downloads/integrity-assistant-macos-protected.zip" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
+                        <a href="./downloads/integrity-assistant-macos.zip" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
                             <i class="fab fa-apple"></i>
                             macOS
                         </a>
                     </div>
                 </div>
 
-                <div class="security-verification" style="margin-top: 20px; padding: 15px; background: rgba(0, 212, 160, 0.1); border-radius: 4px; border: 1px solid var(--turquoise);">
-                    <h4 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> File Verification</h4>
-                    <p style="margin-bottom: 15px; font-size: 0.9em;">To verify your download, check the SHA-256 checksums:</p>
+                <div class="extraction-instructions" style="margin-top: 30px; padding: 15px; background: rgba(0, 212, 160, 0.1); border-radius: 4px; border: 1px solid var(--turquoise);">
+                    <h4 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-file-archive"></i> How to Extract</h4>
+                    <p style="margin-bottom: 15px; font-size: 0.9em;">Follow these steps to extract the password-protected ZIP file:</p>
                     <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.8em;">
                         <div style="margin-bottom: 10px;">
                             <strong style="color: var(--turquoise);">Windows:</strong>
-                            <code style="display: block; margin-top: 5px; word-break: break-all;">Unable to generate checksum - file may be in use</code>
+                            <ol style="margin-top: 5px; padding-left: 20px;">
+                                <li>Right-click the downloaded ZIP file and select "Extract All..." or open with 7-Zip/WinRAR</li>
+                                <li>When prompted, enter the password: <code>integrity2025</code></li>
+                                <li>Choose a destination folder and click "Extract"</li>
+                            </ol>
                         </div>
                         <div style="margin-bottom: 10px;">
                             <strong style="color: var(--turquoise);">Linux:</strong>
-                            <code style="display: block; margin-top: 5px; word-break: break-all;">3365C96CFBCEC32748CB510F223C4B2904A296083C969F91ED8CE7D7A8C4EC48</code>
+                            <ol style="margin-top: 5px; padding-left: 20px;">
+                                <li>Use the terminal command: <code>unzip -P integrity2025 integrity-assistant-linux.zip</code></li>
+                                <li>Or use a GUI tool like File Roller and enter the password when prompted</li>
+                            </ol>
                         </div>
                         <div>
                             <strong style="color: var(--turquoise);">macOS:</strong>
-                            <code style="display: block; margin-top: 5px; word-break: break-all;">65BCDBD981407EE15EDA2A8C9C5330828B595B0F10F86BD1453878AE7D9379C8</code>
+                            <ol style="margin-top: 5px; padding-left: 20px;">
+                                <li>Double-click the ZIP file and enter the password when prompted</li>
+                                <li>Or use the terminal command: <code>unzip -P integrity2025 integrity-assistant-macos.zip</code></li>
+                            </ol>
                         </div>
-                    </div>
-                    <div style="margin-top: 15px; font-size: 0.9em;">
-                        <p><i class="fas fa-info-circle" style="color: var(--turquoise);"></i> How to verify:</p>
-                        <ul style="list-style: none; padding-left: 0; margin-top: 5px;">
-                            <li style="margin-bottom: 5px;"><strong>Windows:</strong> <code>certutil -hashfile integrity-assistant-win.zip SHA256</code></li>
-                            <li style="margin-bottom: 5px;"><strong>Linux/macOS:</strong> <code>shasum -a 256 integrity-assistant-*.zip</code></li>
-                        </ul>
                     </div>
                 </div>
                 

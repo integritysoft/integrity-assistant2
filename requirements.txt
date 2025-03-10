@@ -1,0 +1,2 @@
+# Dependencies for building password-protected zip files
+pyzipper>=1.0.5    # For AES-encrypted zip files 
