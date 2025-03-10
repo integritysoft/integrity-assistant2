@@ -1530,17 +1530,17 @@
                 </div>
                 
                 <div class="download-options">
-                    <a href="/downloads/integrity-assistant-win.zip" class="download-btn" onclick="trackDownload('windows')">
+                    <a href="./downloads/integrity-assistant-win.zip" class="download-btn" onclick="trackDownload('windows')">
                         <i class="fab fa-windows"></i>
                         Download for Windows
                     </a>
                     
                     <div style="display: flex; gap: 15px;">
-                        <a href="/downloads/integrity-assistant-linux.zip" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
+                        <a href="./downloads/integrity-assistant-linux.zip" class="download-btn download-btn-alt" onclick="trackDownload('linux')">
                             <i class="fab fa-linux"></i>
                             Linux
                         </a>
-                        <a href="/downloads/integrity-assistant-macos.zip" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
+                        <a href="./downloads/integrity-assistant-macos.zip" class="download-btn download-btn-alt" onclick="trackDownload('macos')">
                             <i class="fab fa-apple"></i>
                             macOS
                         </a>
@@ -1549,7 +1549,7 @@
                 
                 <div class="installation-steps" style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
                     <h4 style="color: var(--turquoise); margin-bottom: 15px;">Installation Steps:</h4>
-                    <ol style="list-style-decimal; padding-left: 20px; color: var(--light-gray);">
+                    <ol style="list-style-type: decimal; padding-left: 20px; color: var(--light-gray);">
                         <li style="margin-bottom: 10px;">Extract the downloaded zip file</li>
                         <li style="margin-bottom: 10px;">Run <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">install.bat</code> (Windows) or <code style="background: rgba(0, 0, 0, 0.3); padding: 3px 6px; border-radius: 4px;">install.sh</code> (Linux/Mac)</li>
                         <li style="margin-bottom: 10px;">Follow the on-screen instructions to complete installation</li>
@@ -2267,7 +2267,7 @@
                     password: password,
                     options: {
                         data: {
-                            name: name
+                            username: name  // Changed from 'name' to 'username' to match SQL schema
                         }
                     }
                 });
@@ -2426,9 +2426,28 @@
         }
 
         // Track downloads (would connect to Supabase in real implementation)
-        function trackDownload(platform) {
-            console.log(`Download tracked for ${platform}`);
-            // In real implementation, track in Supabase
+        async function trackDownload(platform) {
+            try {
+                const { data: { user } } = await supabaseClient.auth.getUser();
+                if (user) {
+                    const { error } = await supabaseClient
+                        .from('usage_tracking')
+                        .insert([
+                            {
+                                action_type: 'download',
+                                action_details: {
+                                    platform: platform,
+                                    version: '1.0.2'
+                                }
+                            }
+                        ]);
+                    
+                    if (error) throw error;
+                }
+                console.log(`Download tracked for ${platform}`);
+            } catch (error) {
+                console.error('Error tracking download:', error);
+            }
         }
 
         // Mobile nav
