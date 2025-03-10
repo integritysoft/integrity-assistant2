@@ -1546,6 +1546,32 @@
                         </a>
                     </div>
                 </div>
+
+                <div class="security-verification" style="margin-top: 20px; padding: 15px; background: rgba(0, 212, 160, 0.1); border-radius: 4px; border: 1px solid var(--turquoise);">
+                    <h4 style="color: var(--turquoise); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> File Verification</h4>
+                    <p style="margin-bottom: 15px; font-size: 0.9em;">To verify your download, check the SHA-256 checksums:</p>
+                    <div style="background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.8em;">
+                        <div style="margin-bottom: 10px;">
+                            <strong style="color: var(--turquoise);">Windows:</strong>
+                            <code style="display: block; margin-top: 5px; word-break: break-all;">Unable to generate checksum - file may be in use</code>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong style="color: var(--turquoise);">Linux:</strong>
+                            <code style="display: block; margin-top: 5px; word-break: break-all;">3365C96CFBCEC32748CB510F223C4B2904A296083C969F91ED8CE7D7A8C4EC48</code>
+                        </div>
+                        <div>
+                            <strong style="color: var(--turquoise);">macOS:</strong>
+                            <code style="display: block; margin-top: 5px; word-break: break-all;">65BCDBD981407EE15EDA2A8C9C5330828B595B0F10F86BD1453878AE7D9379C8</code>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; font-size: 0.9em;">
+                        <p><i class="fas fa-info-circle" style="color: var(--turquoise);"></i> How to verify:</p>
+                        <ul style="list-style: none; padding-left: 0; margin-top: 5px;">
+                            <li style="margin-bottom: 5px;"><strong>Windows:</strong> <code>certutil -hashfile integrity-assistant-win.zip SHA256</code></li>
+                            <li style="margin-bottom: 5px;"><strong>Linux/macOS:</strong> <code>shasum -a 256 integrity-assistant-*.zip</code></li>
+                        </ul>
+                    </div>
+                </div>
                 
                 <div class="installation-steps" style="margin-top: 30px; padding: 20px; background: rgba(0, 0, 0, 0.3); border-radius: 8px;">
                     <h4 style="color: var(--turquoise); margin-bottom: 15px;">Installation Steps:</h4>
@@ -1580,6 +1606,36 @@
                         </div>
                     </div>
                 </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: rgba(0, 0, 0, 0.3); border-radius: 4px;">
+                    <h4 style="color: var(--turquoise); margin-bottom: 10px;">Alternative Download Methods</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <p style="font-size: 0.9em;">If you experience any issues with the direct download, try these alternatives:</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="https://github.com/integritysoft/integrity-assistant/releases/latest" class="download-btn download-btn-alt" style="font-size: 0.9em;">
+                                <i class="fab fa-github"></i>
+                                GitHub Release
+                            </a>
+                            <a href="#" onclick="showDirectLink('windows')" class="download-btn download-btn-alt" style="font-size: 0.9em;">
+                                <i class="fas fa-link"></i>
+                                Direct Link
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function showDirectLink(platform) {
+                        const links = {
+                            windows: './downloads/integrity-assistant-win.zip',
+                            linux: './downloads/integrity-assistant-linux.zip',
+                            macos: './downloads/integrity-assistant-macos.zip'
+                        };
+                        
+                        const link = window.location.origin + links[platform];
+                        alert('Direct download link:\n\n' + link + '\n\nRight-click and choose "Save Link As" to download.');
+                    }
+                </script>
             </div>
         </div>
     </section>

@@ -8,8 +8,12 @@
   ],
   "routes": [
     { "handle": "filesystem" },
+    { "src": "/.well-known/security.txt", "dest": "/.well-known/security.txt" },
     { "src": "/", "dest": "/index.html" },
-    { "src": "/downloads/(.*)", "dest": "/downloads/$1" },
+    { "src": "/downloads/(.*)", "dest": "/downloads/$1", "headers": {
+      "Content-Type": "application/zip",
+      "Content-Disposition": "attachment"
+    }},
     { "src": "/(.*)", "dest": "/$1" }
   ]
 } 
